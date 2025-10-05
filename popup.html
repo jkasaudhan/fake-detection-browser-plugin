@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <h1>Deepfake Detector</h1>
+      <p>Right-click images/videos to check for AI manipulation</p>
+    </header>
+    
+    <div class="settings-section">
+      <h3>API Settings</h3>
+      
+      <div class="form-group">
+        <label for="apiStrategy">Detection Provider:</label>
+        <select id="apiStrategy" class="form-select">
+          <option value="mock">Mock API (Demo)</option>
+          <option value="sightengine">Sightengine</option>
+          <option value="edenai">Eden AI</option>
+        </select>
+      </div>
+      
+      <div id="apiKeySection" class="form-group hidden">
+        <label for="apiKey">API Key:</label>
+        <input type="password" id="apiKey" class="form-input" placeholder="Enter your API key">
+      </div>
+      
+      <div class="form-group">
+        <label for="autoClose">Auto-close results after:</label>
+        <select id="autoClose" class="form-select">
+          <option value="5000">5 seconds</option>
+          <option value="10000" selected>10 seconds</option>
+          <option value="15000">15 seconds</option>
+          <option value="0">Never auto-close</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="status-section">
+      <h3>Current Status</h3>
+      <div class="status-item">
+        <span class="status-label">Active Provider:</span>
+        <span id="currentProvider" class="status-value">Mock API</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">Last Check:</span>
+        <span id="lastCheck" class="status-value">Never</span>
+      </div>
+    </div>
+    
+    <div class="actions-section">
+      <button id="saveSettings" class="btn btn-primary">Save Settings</button>
+      <button id="viewHistory" class="btn btn-secondary">View History</button>
+    </div>
+    
+    <footer class="popup-footer">
+      <p class="version">v1.0.0</p>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Fake Detector Plugin",
+  "version": "1.0.0",
+  "description": "Check images and videos for AI manipulation.",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.sightengine.com/*",
+    "https://api.edenai.run/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Deepfake Detector Settings"
+  },
+  "icons": {
+    "16": "icons/icon-16.svg",
+    "48": "icons/icon-48.svg",
+    "128": "icons/icon-128.svg"
+  },
+  "web_accessible_resources": [{
+    "resources": ["injected-ui.js"],
+    "matches": ["<all_urls>"]
+  }]
+}
